@@ -12,8 +12,9 @@ export class DinamicComponent {
     colors: this.fb.array([
       ['', [Validators.required]],
     ]),
-    documentType: this.fb.group({
+    objetColor: this.fb.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
+      id: ['', [Validators.required, Validators.minLength(5)]]
 
     }),
     arrColorsGroup: this.fb.array([
