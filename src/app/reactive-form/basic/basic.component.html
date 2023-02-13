@@ -1,0 +1,20 @@
+<h2>Reactive forms</h2>
+
+<form (ngSubmit)="guardar()" [formGroup]="myForm">
+    <div class="row">
+      <label>Product</label>
+      <div class="col-9">
+        <input type="text" formControlName="product">
+      </div>
+    </div>
+    <div class="row">
+      <label>Price</label>
+      <div class="col-9">
+        <input type="number" formControlName="price">
+      </div>
+    </div>
+
+    <button>guardar</button>
+</form>
+
+<pre>{{this.myForm.value | json}}</pre>

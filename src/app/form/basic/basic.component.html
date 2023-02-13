@@ -1,0 +1,27 @@
+<div>
+  <form (ngSubmit)="guardar()" #miFormulario="ngForm" autocomplete="off">
+    <div>
+      <label>Email</label>
+      <div>
+        <input type="text" [ngModel]="initForm.email" name="email" />
+      </div>
+    </div>
+
+    <!-- Campo de producto -->
+    <div>
+      <label>Password</label>
+      <div>
+        <input type="text" [ngModel]="initForm.password" name="password" />
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <button type="submit">Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<span>Value</span>
+<pre>{{ miFormulario.value | json }}</pre>

@@ -1,0 +1,90 @@
+<h2>Reactivos: <small> Dinámicos </small></h2>
+<hr>
+
+<form autocomplete="off" [formGroup]="myForm" (ngSubmit)="guardar()">
+
+    <!-- Nombre -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">product</label>
+        <div class="col-sm-9">
+            <input class="form-control"
+                   formControlName="product"
+                   placeholder="">
+
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">price</label>
+        <div class="col-sm-9">
+            <input class="form-control"
+                   formControlName="price"
+                   placeholder="">
+
+        </div>
+    </div>
+
+    <!-- Agregar Favorito -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">add colors</label>
+        <div class="col-sm-9">
+
+            <div class="input-group">
+                <input class="form-control"
+                       [formControl]="newColors"
+                       placeholder=""
+                       (keyup.enter)="addColors()">
+
+
+                <button class="btn btn-outline-primary"
+                        type="button"
+                        (click)="addColors()">
+                    Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Lista de Juegos Favoritos -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">colors</label>
+        <div class="col-sm-9" formArrayName="colors">
+
+            <div class="input-group mb-1"
+                *ngFor="let favorito of getColors.controls; let i = index">
+
+                <input class="form-control"
+                        [formControlName]="i">
+
+                <button class="btn btn-outline-danger"
+                        type="button"
+                        (click)="borrar(i)">
+                   Delete
+               </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="button"
+                    class="btn btn-primary float-end"
+                    (click)="guardar()">
+                Save
+            </button>
+        </div>
+    </div>
+
+
+</form>
+
+
+<br><br>
+
+<span>Value</span>
+<pre>{{ myForm.value | json }}</pre>
+<br>
+
