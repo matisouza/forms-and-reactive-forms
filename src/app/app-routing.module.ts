@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'reactive',
-    loadChildren:() => import('./reactive-form/reactive-form.module').then(m=> m.ReactiveFormModule),
+    path: '',
+    loadChildren:() => import('./reactive-form/reactive-form.module')
+    .then(m=> m.ReactiveFormModule),
   },
   {
     path: 'no-reactive',
-    loadChildren:() => import('./form/form.module').then(m=> m.FormModule),
+    loadChildren:() => import('./form/form.module')
+    .then(m=> m.FormModule),
   }
 ];
 

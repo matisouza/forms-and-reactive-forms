@@ -12,17 +12,27 @@ export class DinamicComponent {
     colors: this.fb.array([
       ['', [Validators.required]],
     ]),
+    documentType: this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(5)]],
+
+    }),
+    arrColorsGroup: this.fb.array([
+      this.fb.group({
+        name: ['', [Validators.required, Validators.minLength(5)]],
+        id: ['', [Validators.required, Validators.minLength(5)]]
+      })
+    ]),
   });
 
   newColors: FormControl = this.fb.control('', Validators.required);
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   get getColors() {
     return this.myForm.get('colors') as FormArray;
   }
 
-  addColors(){
+  addColors() {
     this.getColors.push(this.fb.control(this.newColors.value, Validators.required))
     this.newColors.reset();
   }
